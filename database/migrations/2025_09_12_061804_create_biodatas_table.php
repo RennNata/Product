@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->string('telepon')->unique();
             $table->string('email')->unique();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

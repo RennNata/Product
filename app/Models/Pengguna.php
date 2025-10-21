@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Pengguna extends Model
 {
     use HasFactory;
 
-    // kolom field yang boleh diisi
-    protected $fillable = ['id', 'title', 'content'];
+    protected $fillable = ['id', 'nama'];
     public $timestamps = true;
-    
 }

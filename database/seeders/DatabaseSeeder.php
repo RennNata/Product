@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             SiswasTableSeeder::class,
             BooksSeeder::class,
             BiodatasTableSeeder::class,
-            ProductsSeeder::class
+            ProductsSeeder::class,
+            TugasIndustriSeeder::class,
             ]);
     }
 }

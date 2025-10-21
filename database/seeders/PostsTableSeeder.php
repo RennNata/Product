@@ -16,13 +16,13 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->insert([
             [
                 'title' => 'Tips cepat pintar',
-                'content' => 'This is the content of the first post.',
+                'content' => 'Lorem ipsum.',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
                 'title' => 'Pembangun Visi Misi Sukses',
-                'content' => 'This is the content of the second post.',
+                'content' => 'Lorem ipsum.',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
