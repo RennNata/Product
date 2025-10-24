@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tambah Data Pengguna</div>
+                <div class="card-header">Tambah Data Kelas</div>
 
                 <div class="card-body">
-                    <form action="{{ route('pengguna.store') }}"  method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('kelas.store') }}"  method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label class="form-label">Nama</label>
-                            <input type="text" class="form-control" name="nama" placeholder="Masukkan nama">
+                            <label class="form-label">Nama Kelas</label>
+                            <input type="text" class="form-control" name="nama" placeholder="Masukkan nama kelas">
                             @error('nama')
                                 <small style="color: red;">{{ $message }}</small>
                             @enderror                        

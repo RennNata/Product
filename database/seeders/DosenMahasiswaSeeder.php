@@ -14,8 +14,15 @@ class DosenMahasiswaSeeder extends Seeder
      */
     public function run(): void
     {
-        $dosen1 = Dosen::create(['nama' => 'Dr. Ahmad', 'nipd' => '123456']);
-        $dosen2 = Dosen::create(['nama' => 'Prof. Zaskia', 'nipd' => '654321']);
+        $dosen1 = Dosen::create([
+            'nama' => 'Dr. Ahmad',
+             'nipd' => '123456',
+        ]);
+        
+        $dosen2 = Dosen::create([
+            'nama' => 'Prof. Zaskia',
+             'nipd' => '654321',
+        ]);
 
         $dosen1->mahasiswas()->createMany([
             ['nama' => 'Budi Santoso', 'nim' => 'M001'],

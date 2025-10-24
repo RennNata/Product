@@ -2,25 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pengguna;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
-class PenggunaController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     public function index()
     {
-        $penggunas = Pengguna::all();
+        $kelas = Kelas::all();
 
-        return view('pengguna.index', compact('penggunas'));
+        return view('kelas.index', compact('kelas'));
     }
 
     /**
@@ -28,7 +23,7 @@ class PenggunaController extends Controller
      */
     public function create()
     {
-        return view('pengguna.create');
+        return view('kelas.create');
     }
 
     /**
@@ -41,21 +36,21 @@ class PenggunaController extends Controller
                 'nama' => 'required|string|min:3|max:255',                  
             ],
             [
-                'nama.required' => 'Nama tidak boleh kosong',
+                'nama.required' => 'Nama Kelas tidak boleh kosong',
                 'nama.min' => 'Minimal 3 karakter',
                 'nama.max' => 'Maksimal 255 karakter',
             ]
             );
 
-        $penggunas = new Pengguna();
-        $penggunas->nama = $request->nama;
+        $kelas = new Kelas();
+        $kelas->nama = $request->nama;
         
         
-        $penggunas->save();
+        $kelas->save();
 
         session()->flash('success', 'Data berhasil ditambahkan.');
 
-        return redirect()->route('pengguna.index');
+        return redirect()->route('kelas.index');
     }
 
     /**
@@ -63,8 +58,8 @@ class PenggunaController extends Controller
      */
     public function show(string $id)
     {
-        $penggunas = Pengguna::findorFail($id);
-        return view('pengguna.show', compact('penggunas'));
+        $kelas = Kelas::findorFail($id);
+        return view('kelas.show', compact('kelas'));
     }
 
     /**
@@ -72,8 +67,8 @@ class PenggunaController extends Controller
      */
     public function edit(string $id)
     {
-        $penggunas = Pengguna::findorFail($id);
-        return view('pengguna.edit', compact('penggunas'));
+        $kelas = Kelas::findorFail($id);
+        return view('kelas.edit', compact('kelas'));
     }
 
     /**
@@ -81,13 +76,13 @@ class PenggunaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $penggunas = Pengguna::findorFail($id);
-        $penggunas->nama = $request->nama;
+        $kelas = Kelas::findorFail($id);
+        $kelas->nama = $request->nama;
         
 
-        $penggunas->save();
+        $kelas->save();
         session()->flash('success', 'Data berhasil diupdate.');
-        return redirect()->route('pengguna.index');
+        return redirect()->route('kelas.index');
     }
 
     /**
@@ -95,9 +90,9 @@ class PenggunaController extends Controller
      */
     public function destroy(string $id)
     {
-        $penggunas = Pengguna::findorFail($id);
+        $kelas = Kelas::findorFail($id);
 
-        $penggunas->delete();
-        return redirect()->route('pengguna.index')->with('success', 'Data berhasil dihapus.');
+        $kelas->delete();
+        return redirect()->route('kelas.index')->with('success', 'Data berhasil dihapus.');
     }
 }

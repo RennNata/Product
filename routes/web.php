@@ -11,8 +11,16 @@ use App\Http\Controllers\TugasIndustriController;
 use App\Http\Controllers\PenggunaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RelasiController;
+use App\Http\Controllers\TeleponController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\MuridController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\TransaksiController;
 use App\Models\Mahasiswa;
 use App\Models\Wali;
+use App\Models\Hobi;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -270,3 +278,23 @@ Route::get('/mahasiswa-ke-dosen', function () {
     $mhs = Mahasiswa::where('nim', 'M002')->first();
     return "{$mhs->nama} dibimbing oleh {$mhs->dosen->nama}";
 });
+
+Route::get('many-to-many', [RelasiController::class, 'manyToMany']);
+
+Route::get('/hobi/coding', function () {
+    $hobi = Hobi::where('nama_hobi', 'Coding')->first();
+    foreach ($hobi->mahasiswas as $mhs) {
+        echo $mhs->nama . '<br>';
+    }
+});
+
+Route::get('eloquent', [RelasiController::class, 'eloquent']);
+
+Route::resource('telepon', TeleponController::class);
+
+Route::resource('kelas', KelasController::class);
+Route::resource('murid', MuridController::class);
+
+Route::resource('barang', BarangController::class);
+Route::resource('pembeli', PembeliController::class);
+Route::resource('transaksi', TransaksiController::class);

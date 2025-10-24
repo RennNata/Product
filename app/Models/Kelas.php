@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pengguna extends Model
+class Kelas extends Model
 {
     use HasFactory;
 
     protected $fillable = ['nama'];
     public $timestamps = true;
 
-    public function telepon()
+    public function murid()
     {
-        return $this->hasOne(Telepon::class);
+        return $this->hasMany(Murid::class);
     }
 }

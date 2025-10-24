@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Data Pengguna</div>
+                <div class="card-header">Data Pembeli</div>
 
                 <div class="card-body text-center">
                     @if (session('success'))
@@ -19,18 +19,23 @@
                         <thead class="Justify-content-center">
                             <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Nama</th>
+                            <th scope="col">Nama Pembeli</th>
+                            <th scope="col">Jenis Kelamin</th>
+                            <th scope="col">Telepon</th>                
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($penggunas as $peng)
+                            @php $no = 1; @endphp
+                            @foreach($pembelis as $p)
                             <tr>
-                            <td>{{$peng->id}}</td>
-                            <td>{{$peng->nama}}</td>                                      
+                            <td>{{$no++}}</td>
+                            <td>{{$p->nama_pembeli}}</td>
+                            <td>{{$p->jenis_kelamin}}</td>
+                            <td>{{$p->telepon}}</td>                            
                             <td>
-                                <a href="{{ Route('pengguna.edit', $peng->id)  }}" class="btn btn-success">Edit</a>
-                                <a href="{{ Route('pengguna.show', $peng->id)  }}" class="btn btn-primary">Tampilkan</a>
-                                <form action="{{ Route('pengguna.destroy', $peng->id) }}" method="POST" class="d-inline">
+                                <a href="{{ Route('pembeli.edit', $p->id)  }}" class="btn btn-success">Edit</a>
+                                <a href="{{ Route('pembeli.show', $p->id)  }}" class="btn btn-primary">Tampilkan</a>
+                                <form action="{{ Route('pembeli.destroy', $p->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Hapus</button>
@@ -40,7 +45,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <a href="{{Route('pengguna.create')}}" class="btn btn-primary w-50">Tambah</a>
+                    <a href="{{Route('pembeli.create')}}" class="btn btn-primary w-50">Tambah</a>
                 </div>
             </div>
         </div>

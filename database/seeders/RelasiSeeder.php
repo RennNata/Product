@@ -16,7 +16,7 @@ class RelasiSeeder extends Seeder
     {
         $mahasiswa = Mahasiswa::create([
             'nama' => 'M Jauf',
-            'nim' => '202310370311123'
+            'nim' => '202310370311123',
         ]);
 
         wali::create([
